@@ -45,3 +45,5 @@ Route::resource('ratings', 'RatingController');
 Route::resource('bookings', 'BookingController');
 
 Route::resource('admins', 'AdminsController');
+
+Route::resource('cities', 'CitiesController');

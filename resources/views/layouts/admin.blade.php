@@ -194,6 +194,19 @@
                 </li>
                 <li class="treeview">
                     <a href="#">
+                        <i class="fa fa-building"></i> <span>Пункти</span>
+                        <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('cities.index') }}"><i class="fa fa-circle-o"></i> Пункти</a></li>
+                        <li><a href="{{ route('cities.create') }}"><i class="fa fa-circle-o"></i> Додати</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-star"></i> <span>Рейтинг</span>
                         <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
