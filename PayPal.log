@@ -1,0 +1,155 @@
+[18-04-2018 07:59:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[18-04-2018 07:59:24] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[18-04-2018 07:59:24] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard
+[18-04-2018 07:59:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[18-04-2018 07:59:25] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"a90f228bdde28"}
+[18-04-2018 08:03:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[18-04-2018 08:03:20] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[18-04-2018 08:03:20] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard
+[18-04-2018 08:03:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[18-04-2018 08:03:22] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"e75c3e5550830"}
+[18-04-2018 08:03:23] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[18-04-2018 08:03:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[18-04-2018 08:03:25] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard
+[18-04-2018 08:03:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[18-04-2018 08:03:26] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"a85937a4841fd"}
+[18-04-2018 08:04:39] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[18-04-2018 08:04:40] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[18-04-2018 08:04:40] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard
+[18-04-2018 08:04:42] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[18-04-2018 08:04:42] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithCreditCard. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"1307684b3e496"}
+[18-04-2018 08:06:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[18-04-2018 08:06:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[18-04-2018 08:06:58] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[18-04-2018 08:07:00] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[18-04-2018 08:07:00] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"60a8476a636aa"}
+[18-04-2018 08:12:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[18-04-2018 08:12:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[18-04-2018 08:12:37] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[18-04-2018 08:12:38] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[18-04-2018 08:12:38] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"c229e32af0350"}
+[19-04-2018 04:55:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 04:55:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 04:55:17] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 04:55:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 04:56:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 04:56:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 04:56:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 04:56:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 500
+[19-04-2018 04:56:16] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 500 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"INTERNAL_SERVICE_ERROR","message":"An internal service error occurred.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"400a07bd9427d"}
+[19-04-2018 04:56:34] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 04:56:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 04:56:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 04:56:49] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 04:57:53] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 04:57:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 04:57:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 04:57:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 05:00:13] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 05:00:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 05:00:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 05:00:16] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 05:35:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 05:35:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 05:35:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 05:35:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 05:38:04] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 05:38:05] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 05:38:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 05:38:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 07:52:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 07:52:11] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 07:52:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 07:52:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 07:53:30] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 07:53:31] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 07:53:31] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 07:53:32] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 08:03:33] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:03:34] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:03:34] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:03:35] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 500
+[19-04-2018 08:03:35] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 500 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"INTERNAL_SERVICE_ERROR","message":"An internal service error occurred.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"437edb3ebed74"}
+[19-04-2018 08:03:40] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:03:41] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:03:41] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:03:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 08:08:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:08:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:08:25] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:08:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[19-04-2018 08:08:26] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"e8b01d5054dd8"}
+[19-04-2018 08:08:35] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:08:36] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:08:36] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:08:37] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[19-04-2018 08:08:37] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"f5f215918b165"}
+[19-04-2018 08:11:11] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:11:12] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:11:12] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:11:14] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[19-04-2018 08:11:14] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"e372dae5b0d77"}
+[19-04-2018 08:12:00] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:12:11] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:12:11] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:12:32] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:13:05] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:13:06] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:13:06] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:13:07] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[19-04-2018 08:13:07] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"5fe685c4cd927"}
+[19-04-2018 08:14:16] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:14:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:14:17] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:14:18] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[19-04-2018 08:14:18] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"7a3d5872d2e0f"}
+[19-04-2018 08:14:20] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:14:21] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:14:21] PayPal\Core\PayPalHttpConnection : INFO: GET https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal
+[19-04-2018 08:14:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 404
+[19-04-2018 08:14:22] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 404 when accessing https://api.sandbox.paypal.com/v1/payments/payment/paywithPaypal. {"name":"INVALID_RESOURCE_ID","message":"Requested resource ID was not found.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"2fc6ae34d14fb"}
+[19-04-2018 08:16:09] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:16:10] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:16:10] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:16:11] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 08:17:14] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:17:15] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:17:15] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:17:17] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 08:18:24] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:18:25] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:18:25] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:18:26] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 08:22:18] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:22:19] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:22:19] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:22:20] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 500
+[19-04-2018 08:22:20] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 500 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"INTERNAL_SERVICE_ERROR","message":"An internal service error occurred.","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"20a4a27e5c438"}
+[19-04-2018 08:33:42] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:33:43] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:33:43] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:33:44] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-04-2018 08:33:44] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"},{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"b1d25a8a17e74"}
+[19-04-2018 08:34:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:34:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:34:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:34:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-04-2018 08:34:58] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"},{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"8499ecc5397b"}
+[19-04-2018 08:35:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:35:54] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:35:54] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:35:55] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-04-2018 08:35:55] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"},{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"9f9c8ba42b96a"}
+[19-04-2018 08:36:21] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:36:22] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:36:22] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:36:23] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201
+[19-04-2018 08:36:57] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:36:58] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:36:58] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:36:59] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 400
+[19-04-2018 08:36:59] PayPal\Core\PayPalHttpConnection : ERROR: Got Http response code 400 when accessing https://api.sandbox.paypal.com/v1/payments/payment. {"name":"VALIDATION_ERROR","details":[{"field":"transactions[0]","issue":"Item amount must add up to specified amount subtotal (or total if amount details not specified)"},{"field":"transactions[0].amount","issue":"Transaction amount details (subtotal, tax, shipping) must add up to specified amount total"}],"message":"Invalid request - see details","information_link":"https://developer.paypal.com/docs/api/payments/#errors","debug_id":"e4cc3a3a11e3e"}
+[19-04-2018 08:38:28] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/oauth2/token
+[19-04-2018 08:38:28] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 200
+[19-04-2018 08:38:28] PayPal\Core\PayPalHttpConnection : INFO: POST https://api.sandbox.paypal.com/v1/payments/payment
+[19-04-2018 08:38:30] PayPal\Core\PayPalHttpConnection : INFO: Response Status 	: 201

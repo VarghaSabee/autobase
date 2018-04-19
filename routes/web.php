@@ -47,3 +47,17 @@ Route::resource('bookings', 'BookingController');
 Route::resource('admins', 'AdminsController');
 
 Route::resource('cities', 'CitiesController');
+
+
+Route::prefix('payment')->group(function() {
+    Route::get('/paywithCreditCard', 'PaymentController@paywithCreditCard');
+    Route::get('/paywithPaypal', 'PaymentController@paywithPaypal');
+    Route::get('/success', 'PaymentController@success');
+    Route::get('/fails', 'PaymentController@fails');
+    Route::get('/button', 'PaymentController@button');
+});
+
+//Route::get('payment/paywithCreditCard', 'PaymentController@paywithCreditCard');
+//Route::get('payment/paywithPaypal', 'PaymentController@paywithPaypal');
+//Route::get('payment/buttons', 'PaymentController@button');
+//Route::get('payment/buttons', 'PaymentController@button');

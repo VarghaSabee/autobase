@@ -169,6 +169,9 @@ return [
         /*Socials*/
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+        /* PayPal */
+        Anouar\Paypalpayment\PaypalpaymentServiceProvider::class,
+
     ],
 
     /*
@@ -224,6 +227,9 @@ return [
 
         /*Socials*/
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+        /* PayPal */
+        'Paypalpayment'   => Anouar\Paypalpayment\Facades\PaypalPayment::class,
 
     ],
 
