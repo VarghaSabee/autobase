@@ -1,14 +1,25 @@
-<table class="table table-responsive" id="drivers-table">
-    <thead>
+<table class="table table-responsive" id="dataTable">
+
+<thead>
         <tr>
             <th>Firstname</th>
         <th>Lastname</th>
         <th>Busid</th>
         <th>Telephone</th>
         <th>Email</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Busid</th>
+        <th>Telephone</th>
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($drivers as $drivers)
         <tr>

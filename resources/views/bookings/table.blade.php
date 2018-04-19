@@ -1,17 +1,29 @@
-<table class="table table-responsive" id="bookings-table">
+<table class="table table-responsive" id="dataTable">
     <thead>
         <tr>
             <th>Route Ids</th>
+        <th>User Id</th>
         <th>Status</th>
         <th>Seats</th>
         <th>Fare</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Route Ids</th>
+        <th>User Id</th>
+        <th>Status</th>
+        <th>Seats</th>
+        <th>Fare</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($bookings as $booking)
         <tr>
             <td>{!! $booking->route_ids !!}</td>
+            <td>{!! $booking->user_id !!}</td>
             <td>{!! $booking->status !!}</td>
             <td>{!! $booking->seats !!}</td>
             <td>{!! $booking->fare !!}</td>

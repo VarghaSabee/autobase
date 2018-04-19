@@ -1,5 +1,6 @@
-<table class="table table-responsive" id="routes-table">
-    <thead>
+<table class="table table-responsive" id="dataTable">
+
+<thead>
         <tr>
             <th>Name</th>
         <th>From</th>
@@ -9,9 +10,22 @@
         <th>Busid</th>
         <th>Fare</th>
         <th>Status</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Starttime</th>
+        <th>Endtime</th>
+        <th>Busid</th>
+        <th>Fare</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($routes as $routes)
         <tr>

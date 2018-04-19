@@ -1,12 +1,20 @@
-<table class="table table-responsive" id="admins-table">
+<table class="table table-responsive" id="dataTable">
     <thead>
         <tr>
             <th>Name</th>
         <th>Email</th>
         <th>Image</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Image</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($admins as $admins)
         <tr>

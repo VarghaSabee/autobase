@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Autobuses;
 
 class DriversController extends AppBaseController
 {
@@ -43,7 +44,9 @@ class DriversController extends AppBaseController
      */
     public function create()
     {
-        return view('drivers.create');
+        $buses = Autobuses::orderBy('id')->get(['id'])->keyBy('id');
+
+        return view('drivers.create',compact('buses'));
     }
 
     /**

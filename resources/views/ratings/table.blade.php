@@ -1,16 +1,30 @@
-<table class="table table-responsive" id="ratings-table">
+<table class="table table-responsive" id="dataTable">
     <thead>
         <tr>
             <th>Booking Id</th>
         <th>Name</th>
-            <th colspan="3">Action</th>
+        <th>Rating</th>
+        <th>Comment</th>
+            <th>Action</th>
         </tr>
     </thead>
+
+    <tfoot>
+    <tr>
+        <th>Booking Id</th>
+        <th>Name</th>
+        <th>Rating</th>
+        <th>Comment</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($ratings as $rating)
         <tr>
             <td>{!! $rating->booking_id !!}</td>
             <td>{!! $rating->name !!}</td>
+            <td>{!! $rating->rating !!}</td>
+            <td>{!! $rating->comment !!}</td>
             <td>
                 {!! Form::open(['route' => ['ratings.destroy', $rating->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

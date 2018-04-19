@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+Route::get('/','HomeController@index')->name('index');
 
 Route::get('login/{provider}', 'SocialLogin@redirectToProvider')->name("social.login");
 Route::get('login/{provider}/callback', 'SocialLogin@handleProviderCallback');
@@ -38,9 +36,10 @@ Route::resource('autobuses', 'AutobusesController');
 
 Route::resource('drivers', 'DriversController');
 
+Route::post('routes/search', 'RoutesController@search')->name('routes.find');
 Route::resource('routes', 'RoutesController');
 
-Route::resource('ratings', 'RatingController');
+
 
 Route::resource('bookings', 'BookingController');
 
@@ -61,3 +60,4 @@ Route::prefix('payment')->group(function() {
 //Route::get('payment/paywithPaypal', 'PaymentController@paywithPaypal');
 //Route::get('payment/buttons', 'PaymentController@button');
 //Route::get('payment/buttons', 'PaymentController@button');
+Route::resource('ratings', 'RatingController');

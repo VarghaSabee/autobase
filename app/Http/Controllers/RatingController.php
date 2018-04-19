@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Booking;
 
 class RatingController extends AppBaseController
 {
@@ -56,12 +57,17 @@ class RatingController extends AppBaseController
     public function store(CreateRatingRequest $request)
     {
         $input = $request->all();
+        $booking = Booking::find((int) $request->booking_id );
 
+        if (empty($booking)) {
+            Flash::error('Booking not found');
+            return redirect()->back();
+        }
         $rating = $this->ratingRepository->create($input);
 
         Flash::success('Rating saved successfully.');
 
-        return redirect(route('ratings.index'));
+        return redirect()->back();
     }
 
     /**
@@ -152,4 +158,6 @@ class RatingController extends AppBaseController
 
         return redirect(route('ratings.index'));
     }
+
+
 }

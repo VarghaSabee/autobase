@@ -4,6 +4,12 @@
     {!! Form::text('route_ids', null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- User Id Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('user_id', 'User Id:') !!}
+    {!! Form::number('user_id', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Status Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('status', 'Status:') !!}
@@ -22,7 +28,7 @@
 <!-- Fare Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fare', 'Fare:') !!}
-    {!! Form::text('fare', null, ['class' => 'form-control']) !!}
+    {!! Form::number('fare', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

@@ -6,6 +6,7 @@ use App\Http\Requests\CreateAdminsRequest;
 use App\Http\Requests\UpdateAdminsRequest;
 use App\Repositories\AdminsRepository;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
@@ -56,7 +57,7 @@ class AdminsController extends AppBaseController
     public function store(CreateAdminsRequest $request)
     {
         $input = $request->all();
-
+        $input['password'] = Hash::make($request->password );
         $admins = $this->adminsRepository->create($input);
 
         Flash::success('Admins saved successfully.');
@@ -121,8 +122,9 @@ class AdminsController extends AppBaseController
 
             return redirect(route('admins.index'));
         }
-
-        $admins = $this->adminsRepository->update($request->all(), $id);
+        $input = $request->all();
+        $input['password'] = Hash::make($request->password );;
+        $admins = $this->adminsRepository->update($input, $id);
 
         Flash::success('Admins updated successfully.');
 

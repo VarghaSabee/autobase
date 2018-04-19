@@ -28,8 +28,8 @@
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+    <link href="http://bus-ticket.bdtask.com/bus365_demov2/assets/datatables/css/dataTables.min.css" rel="stylesheet" type="text/css"/>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
 
@@ -43,7 +43,7 @@
 
         <!-- Logo -->
         <a href="#" class="logo">
-            <b>Фото салон</b>
+            <b>Autobase</b>
         </a>
 
         <!-- Header Navbar -->
@@ -63,15 +63,15 @@
                             <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
                                  class="user-image" alt="User Image"/>
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">{{Auth::user()->name}}</span>
+                            <span class="hidden-xs">{{Auth::guard('admin')->user()->name}}</span>
                         </a>
                     </li>
                     <li class="user user-menu">
                         <a href="#" class="btn btn-primary btn-flat"
                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            <i class="fa fa-sign-out"></i>  Bийти з аккаунта
+                            <i class="fa fa-sign-out"></i>  Logout
                         </a>
-                        <form id="logout-form" action="#" method="GET" style="display: none;">
+                        <form id="logout-form" action="{{route('admin.logout')}}" method="GET" style="display: none;">
                             @csrf
                         </form>
                     </li>
@@ -271,16 +271,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
+<script src="http://bus-ticket.bdtask.com/bus365_demov2/assets/datatables/js/dataTables.min.js" type="text/javascript"></script>
+
+
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#dataTable').DataTable( {
-            'columnDefs': [
-                {'max-width': '20%', 'targets': 0}
-            ],
-        } );
-
+//        $('#dataTable').DataTable( {
+//            'columnDefs': [
+//                {'max-width': '20%', 'targets': 0}
+//            ],
+//        } );
+        $('#dataTable').DataTable({
+            "pagingType": "full_numbers",
+            responsive: true,
+            dom: "<'row'<'col-sm-8'B><'col-sm-4'f>>tp",
+            buttons: [
+                {extend: 'copy', className: 'btn-sm'},
+                {extend: 'csv', title: 'ExampleFile', className: 'btn-sm'},
+                {extend: 'excel', title: 'ExampleFile', className: 'btn-sm', title: 'exportTitle'},
+                {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
+                {extend: 'print', className: 'btn-sm'}
+            ]
+        });
 
     });
 </script>

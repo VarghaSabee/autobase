@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRoutesRequest;
 use App\Http\Requests\UpdateRoutesRequest;
+use App\Models\Routes;
 use App\Repositories\RoutesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Cities;
 
 class RoutesController extends AppBaseController
 {
@@ -151,5 +153,14 @@ class RoutesController extends AppBaseController
         Flash::success('Routes deleted successfully.');
 
         return redirect(route('routes.index'));
+    }
+
+    public function search(Request $request){
+
+        $cities = Cities::all();
+        $routes = Routes::all();
+
+       // dd($request);
+        return view('search', compact('routes','cities'));
     }
 }

@@ -50,8 +50,8 @@ class Autobuses extends Model
      */
     public static $rules = [
         'type' => 'string',
-        'plateNumber' => 'text',
-        'seats' => 'number'
+        'plateNumber' => 'string',
+        'seats' => 'integer'
     ];
 
     

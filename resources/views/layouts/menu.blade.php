@@ -28,13 +28,7 @@
     <a href="{!! route('routes.index') !!}"><i class="fa fa-edit"></i><span>Routes</span></a>
 </li>
 
-<li class="{{ Request::is('ratings*') ? 'active' : '' }}">
-    <a href="{!! route('ratings.index') !!}"><i class="fa fa-edit"></i><span>Ratings</span></a>
-</li>
 
-<li class="{{ Request::is('bookings*') ? 'active' : '' }}">
-    <a href="{!! route('bookings.index') !!}"><i class="fa fa-edit"></i><span>Bookings</span></a>
-</li>
 
 <li class="{{ Request::is('admins*') ? 'active' : '' }}">
     <a href="{!! route('admins.index') !!}"><i class="fa fa-edit"></i><span>Admins</span></a>
@@ -42,5 +36,14 @@
 
 <li class="{{ Request::is('cities*') ? 'active' : '' }}">
     <a href="{!! route('cities.index') !!}"><i class="fa fa-edit"></i><span>Cities</span></a>
+</li>
+
+<li class="{{ Request::is('bookings*') ? 'active' : '' }}">
+    <a href="{!! route('bookings.index') !!}"><i class="fa fa-edit"></i><span>Bookings</span></a>
+</li>
+
+
+<li class="{{ Request::is('ratings*') ? 'active' : '' }}">
+    <a href="{!! route('ratings.index') !!}"><i class="fa fa-edit"></i><span>Ratings</span></a>
 </li>
 

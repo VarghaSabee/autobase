@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class BookingRepository
  * @package App\Repositories
- * @version April 18, 2018, 5:04 pm UTC
+ * @version April 19, 2018, 2:13 pm UTC
  *
  * @method Booking findWithoutFail($id, $columns = ['*'])
  * @method Booking find($id, $columns = ['*'])
@@ -21,6 +21,7 @@ class BookingRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'route_ids',
+        'user_id',
         'status',
         'seats',
         'fare'

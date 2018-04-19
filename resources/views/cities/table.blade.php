@@ -1,10 +1,17 @@
-<table class="table table-responsive" id="cities-table">
-    <thead>
+<table class="table table-responsive" id="dataTable">
+
+<thead>
         <tr>
             <th>Name</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($cities as $cities)
         <tr>

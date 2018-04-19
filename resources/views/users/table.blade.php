@@ -1,14 +1,24 @@
-<table class="table table-responsive" id="users-table">
-    <thead>
+<table class="table table-responsive" id="dataTable">
+<thead>
         <tr>
             <th>Name</th>
         <th>Email</th>
         <th>Telephone</th>
         <th>Image</th>
         <th>Provider</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Telephone</th>
+        <th>Image</th>
+        <th>Provider</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($users as $users)
         <tr>

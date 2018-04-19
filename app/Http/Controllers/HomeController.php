@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Cities;
+use App\Models\Rating;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       //s $this->middleware('auth');
     }
 
     /**
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $cities = json_encode(Cities::all(['id','name']));
+        $rating = Rating::orderBy('created_at')->take(3)->get(['id','rating','name','comment']);
+        return view('welcome',compact('cities','rating'));
     }
 }

@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class RatingRepository
  * @package App\Repositories
- * @version April 18, 2018, 4:56 pm UTC
+ * @version April 19, 2018, 3:05 pm UTC
  *
  * @method Rating findWithoutFail($id, $columns = ['*'])
  * @method Rating find($id, $columns = ['*'])
@@ -21,7 +21,9 @@ class RatingRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'booking_id',
-        'name'
+        'name',
+        'rating',
+        'comment'
     ];
 
     /**

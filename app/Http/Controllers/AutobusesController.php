@@ -43,6 +43,7 @@ class AutobusesController extends AppBaseController
      */
     public function create()
     {
+
         return view('autobuses.create');
     }
 

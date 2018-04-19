@@ -1,13 +1,22 @@
-<table class="table table-responsive" id="autobuses-table">
+<table class="table table-responsive" id="dataTable">
     <thead>
         <tr>
             <th>Type</th>
         <th>Platenumber</th>
         <th>Seats</th>
         <th>Status</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
     </thead>
+    <tfoot>
+    <tr>
+        <th>Type</th>
+        <th>Platenumber</th>
+        <th>Seats</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </tfoot>
     <tbody>
     @foreach($autobuses as $autobuses)
         <tr>
