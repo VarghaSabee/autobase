@@ -34,7 +34,8 @@ class Booking extends Model
         'user_id',
         'status',
         'seats',
-        'fare'
+        'fare',
+        'route_name'
     ];
 
     /**
@@ -48,7 +49,8 @@ class Booking extends Model
         'user_id' => 'integer',
         'status' => 'boolean',
         'seats' => 'string',
-        'fare' => 'integer'
+        'fare' => 'integer',
+        'route_name'=>'string'
     ];
 
     /**

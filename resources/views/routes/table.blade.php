@@ -36,7 +36,7 @@
             <td>{!! $routes->endTime !!}</td>
             <td>{!! $routes->busID !!}</td>
             <td>{!! $routes->fare !!}</td>
-            <td>{!! $routes->status !!}</td>
+            <td><i style="color: #{!! $routes->status ? "00DD00" : "FF0000" !!};" class="fa fa-{{ $routes->status ? "check" : "close" }}"></i></td>
             <td>
                 {!! Form::open(['route' => ['routes.destroy', $routes->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

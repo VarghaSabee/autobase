@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Models\Cities;
 
 class UsersController extends AppBaseController
 {
@@ -151,5 +152,10 @@ class UsersController extends AppBaseController
         Flash::success('Users deleted successfully.');
 
         return redirect(route('users.index'));
+    }
+    public function profile(){
+        $cities = json_encode(Cities::all(['id','name']));
+
+        return view('users.profile',compact('cities'));
     }
 }

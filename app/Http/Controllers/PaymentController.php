@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Paypalpayment;
+use Flash;
 
 class PaymentController extends Controller
 {
@@ -140,21 +143,10 @@ class PaymentController extends Controller
     /*
     * Process payment with express checkout
     */
-    public function paywithPaypal()
+    public function paywithPaypal($id)
     {
-        // ### Address
-        // Base Address object used as shipping or billing
-        // address in a payment. [Optional]
-        $shippingAddress= Paypalpayment::shippingAddress();
-        $shippingAddress->setLine1("3909 Witmer Road")
-            ->setLine2("Niagara Falls")
-            ->setCity("Niagara Falls")
-            ->setState("NY")
-            ->setPostalCode("14305")
-            ->setCountryCode("US")
-            ->setPhone("716-298-1822")
-            ->setRecipientName("Jhone");
-
+        $booking = Booking::find((int) $id)->first();
+        Session::put('paymantID', $id);
         // ### Payer
         // A resource representing a Payer that funds a payment
         // Use the List of `FundingInstrument` and the Payment Method
@@ -163,39 +155,29 @@ class PaymentController extends Controller
         $payer->setPaymentMethod("paypal");
 
         $item1 = Paypalpayment::item();
-        $item1->setName('Ground Coffee 40 oz')
-            ->setDescription('Ground Coffee 40 oz')
+        $item1->setName('Route ' . $booking->route_name)
+            ->setDescription('Ticket route ' . $booking->route_name)
             ->setCurrency('USD')
             ->setQuantity(1)
-            ->setTax(0.3)
-            ->setPrice(17.50);
-
-        $item2 = Paypalpayment::item();
-        $item2->setName('Granola bars')
-            ->setDescription('Granola Bars with Peanuts')
-            ->setCurrency('USD')
-            ->setQuantity(5)
-            ->setTax(0.2)
-            ->setPrice(2);
-
+            ->setTax(0)
+            ->setPrice($booking->fare);
 
         $itemList = Paypalpayment::itemList();
-        $itemList->setItems([$item1,$item2])
-            ->setShippingAddress($shippingAddress);
+        $itemList->setItems([$item1]);
+            //->setShippingAddress($shippingAddress);
 
-
-        $details = Paypalpayment::details();
-        $details->setShipping("1.2")
-            ->setTax("1.3")
-            //total of items prices
-            ->setSubtotal("27.5");
+//        $details = Paypalpayment::details();
+//        $details->setShipping("0")
+//            ->setTax("0")
+//            //total of items prices
+//            ->setSubtotal("17.50");
 
         //Payment Amount
         $amount = Paypalpayment::amount();
         $amount->setCurrency("USD")
             // the total is $17.8 = (16 + 0.6) * 1 ( of quantity) + 1.2 ( of Shipping).
-            ->setTotal("30")
-            ->setDetails($details);
+            ->setTotal($booking->fare);
+           // ->setDetails($details);
 
         // ### Transaction
         // A transaction defines the contract of a
@@ -236,20 +218,28 @@ class PaymentController extends Controller
 
        // dd($payment->getApprovalLink());
 
-        return "<a href='" .$payment->getApprovalLink(). "'>PayPalPay</a>";
+        return redirect($payment->getApprovalLink());
        // return response()->json([$payment->toArray(), 'approval_url' => $payment->getApprovalLink()], 200);
+        //return dd($booking);
 
     }
 
     public function button(){
+
         return view('admin.pay');
     }
     public function success(){
-        return "<h1>Everythings Хорошо!</h1>";
-
+       $id = (int) Session::get('paymantID');
+       $booking = Booking::find($id);
+       $booking->status = 1;
+       $booking->save();
+       Session::forget('paymantID');
+        Flash::success('Payment complited successfully.');
+        return redirect(route('bookings.user.dashboard'));
     }
     public function fails(){
-        return "<h1>Everythings Плохо!</h1>";
+        Flash::error('Failed to pay!');
+        return redirect(route('bookings.user.dashboard'));
 
     }
 }

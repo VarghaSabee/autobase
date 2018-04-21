@@ -44,12 +44,12 @@ class DriversController extends AppBaseController
      */
     public function create()
     {
-        $buses = Autobuses::orderBy('id')->get(['id'])->keyBy('id');
+        $buses = Autobuses::orderBy('id')->pluck('plateNumber','id');
 
         return view('drivers.create',compact('buses'));
     }
 
-    /**
+    /**s
      * Store a newly created Drivers in storage.
      *
      * @param CreateDriversRequest $request

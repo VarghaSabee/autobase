@@ -31,8 +31,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::resource('users', 'UsersController');
+Route::get('u/profile', 'UsersController@profile')->name('users.profile');
+Route::get('u/dashboard','BookingController@userBookings')->name('bookings.user.dashboard');
 
 Route::resource('autobuses', 'AutobusesController');
+Route::get('autobuses/{autobuse}/status','AutobusesController@status')->name('autobuses.status');
 
 Route::resource('drivers', 'DriversController');
 
@@ -40,8 +43,12 @@ Route::post('routes/search', 'RoutesController@search')->name('routes.find');
 Route::resource('routes', 'RoutesController');
 
 
-
 Route::resource('bookings', 'BookingController');
+Route::post('bookings/ajax', 'BookingController@AJAXinfo')->name('bookings.ajax');
+Route::post('bookings/seat/info', 'BookingController@AJAXBoockingInfo')->name('bookings.seat.info');
+Route::post('bookings/register', 'BookingController@registBooking')->name('bookings.register');
+
+
 
 Route::resource('admins', 'AdminsController');
 
@@ -50,14 +57,14 @@ Route::resource('cities', 'CitiesController');
 
 Route::prefix('payment')->group(function() {
     Route::get('/paywithCreditCard', 'PaymentController@paywithCreditCard');
-    Route::get('/paywithPaypal', 'PaymentController@paywithPaypal');
+    Route::get('/paywithPaypal/{id}', 'PaymentController@paywithPaypal')->name('paypal');
     Route::get('/success', 'PaymentController@success');
     Route::get('/fails', 'PaymentController@fails');
     Route::get('/button', 'PaymentController@button');
 });
 
-//Route::get('payment/paywithCreditCard', 'PaymentController@paywithCreditCard');
-//Route::get('payment/paywithPaypal', 'PaymentController@paywithPaypal');
-//Route::get('payment/buttons', 'PaymentController@button');
-//Route::get('payment/buttons', 'PaymentController@button');
+
 Route::resource('ratings', 'RatingController');
+
+
+Route::resource('availables', 'availableController');

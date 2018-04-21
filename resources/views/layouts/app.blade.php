@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Demo Application - Home</title>
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="{{ asset('images/favicon.jpg') }}" type="image/x-icon">
@@ -24,6 +24,9 @@
     <link href="{{asset('css/select2.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/website.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('css/style.css')}}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="http://bus-ticket.bdtask.com/bus365_demov2/assets/datatables/css/dataTables.min.css" rel="stylesheet" type="text/css"/>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,27 +48,27 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="http://bus-ticket.bdtask.com/bus365_demov2/website"><img src="{{ asset('images/553aa4b00ca138a9e2e6bfc5bae96316.png') }}" class="logo" alt=""></a>
+            <a class="navbar-brand" href="{{ route('index') }}"><img src="{{ asset('images/553aa4b00ca138a9e2e6bfc5bae96316.png') }}" class="logo" alt=""></a>
         </div>
         <!-- End Header Navigation -->
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-menu">
             <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                <li><a href="http://bus-ticket.bdtask.com/bus365_demov2/userlog"><i class="fa fa-print"></i> Print Ticket</a></li>
-                <li><a href="http://bus-ticket.bdtask.com/bus365_demov2/userlog"><i class="fa fa-remove"></i> Cancel Ticket</a></li>
+                <li><a href="{{ route('bookings.user.dashboard') }}"><i class="fa fa-print"></i> Print Ticket</a></li>
+                <li><a href="{{ route('bookings.user.dashboard') }}"><i class="fa fa-remove"></i> Cancel Ticket</a></li>
                 @guest
                     <li><a href="{{ route('login') }}"><i class="pe-7s-settings"></i>Login</a></li>
                     @else
                         <li class="dropdown dropdown-user">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu">
-                                <li><a href="http://bus-ticket.bdtask.com/bus365_demov2/userlog"><i class="pe-7s-users"></i> User Login</a></li>
-                                <li><a href="http://bus-ticket.bdtask.com/bus365_demov2/login"><i class="pe-7s-settings"></i> Admin Login</a></li>
+                                <li><a href="{{ route('bookings.user.dashboard') }}"><i class="fa fa-ticket"></i><i class="pe-7s-users"></i> Tickets</a></li>
+                                <li><a href="{{ route('users.profile') }}"><i class="fa fa-user-circle"></i><i class="pe-7s-settings"></i> Profile </a></li>
                                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
-                                    </a></li>
+                                    </a> </li>
                             </ul>
                         </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -169,7 +172,7 @@
     </div>
 </div>
 <a name="customer_service"></a>
-<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/datepicker.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/datepicker.en.js') }}" type="text/javascript"></script>
@@ -182,13 +185,14 @@
 <script src="{{ asset('js/select2.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/website.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/script.js') }}" type="text/javascript"></script>
+<script src="http://bus-ticket.bdtask.com/bus365_demov2/assets/datatables/js/dataTables.min.js" type="text/javascript"></script>
+
 
 
 <script type="text/javascript">
     $(document).ready(function() {
 
         var Cities = {!! $cities !!};
-
         SetPoints();
         function SetPoints(selected) {
             $('.start_point').empty();
@@ -196,7 +200,7 @@
             $('.start_point').append('<option value=""></option>');
             $('.end_point').append('<option value=""></option>');
 
-            for(var i =0; i < Cities.length; i++){
+            for(var i = 0; i < Cities.length; i++){
                 if (Cities[i].id == selected){
                     $('.start_point').append('<option selected value="' + Cities[i].id + '">' + Cities[i].name + '</option>');
 

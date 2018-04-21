@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRoutesRequest;
 use App\Http\Requests\UpdateRoutesRequest;
+use App\Models\available;
 use App\Models\Routes;
 use App\Repositories\RoutesRepository;
 use App\Http\Controllers\AppBaseController;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Cities;
+use App\Models\Autobuses;
+use App\Models\Booking;
 
 class RoutesController extends AppBaseController
 {
@@ -45,7 +49,9 @@ class RoutesController extends AppBaseController
      */
     public function create()
     {
-        return view('routes.create');
+        $cities = json_encode(Cities::all(['id','name']));
+        $buses = Autobuses::orderBy('id')->pluck('plateNumber','id');
+        return view('routes.create',compact('cities','buses'));
     }
 
     /**
@@ -58,8 +64,19 @@ class RoutesController extends AppBaseController
     public function store(CreateRoutesRequest $request)
     {
         $input = $request->all();
-
         $routes = $this->routesRepository->create($input);
+
+        $bus = Autobuses::find($routes->busID)->first();
+        $avaible = new available();
+        $avaible->route_name = $routes->name;
+        $avaible->route_id = $routes->id;
+        $avaible->bus_id = $routes->busID;
+        $avaible->bus_plate_number = $bus->plateNumber;
+        $avaible->seats = $bus->seats;
+        $avaible->busy = '';
+        $avaible->created_at = date("Y-m-d H:i:s");
+        $avaible->updated_at = date("Y-m-d H:i:s");
+        $avaible->save();
 
         Flash::success('Routes saved successfully.');
 
@@ -96,14 +113,15 @@ class RoutesController extends AppBaseController
     public function edit($id)
     {
         $routes = $this->routesRepository->findWithoutFail($id);
-
+        $cities = json_encode(Cities::all(['id','name']));
+        $buses = Autobuses::orderBy('id')->pluck('plateNumber','id');
         if (empty($routes)) {
             Flash::error('Routes not found');
 
             return redirect(route('routes.index'));
         }
 
-        return view('routes.edit')->with('routes', $routes);
+        return view('routes.edit',compact('cities','buses'))->with('routes', $routes);
     }
 
     /**
@@ -157,10 +175,19 @@ class RoutesController extends AppBaseController
 
     public function search(Request $request){
 
-        $cities = Cities::all();
-        $routes = Routes::all();
+        $search = $request;
+        $c = Cities::all(['id','name']);
+        $city = $c->keyBy('id');
+        $cities = json_encode($c);
 
-       // dd($request);
-        return view('search', compact('routes','cities'));
+        $routes = Routes::where('startTime', '>=',Carbon::today()->toDateString())
+        ->where('endTime','<=', date_format(date_create($request->date . '23:59:59'), 'Y-m-d H:i:s'))
+            ->where('from', $request->start_point)
+            ->where('to',$request->end_point)
+            ->orderBy('startTime')
+            ->get();
+        $seats = available::whereIn('route_id' , $routes->pluck('id')->all())->get()->keyBy('route_id');
+
+        return view('search', compact('routes','cities','seats','city','search'));
     }
 }

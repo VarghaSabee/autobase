@@ -43,7 +43,7 @@ class Drivers extends Model
         'firstName' => 'string',
         'lastName' => 'string',
         'busID' => 'integer',
-        'telephone' => 'integer',
+        'telephone' => 'string',
         'email' => 'string'
     ];
 

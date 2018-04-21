@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
+use App\Models\available;
+use App\Models\Booking;
+use App\Models\Cities;
+use App\Models\Routes;
 use App\Repositories\BookingRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -151,5 +156,76 @@ class BookingController extends AppBaseController
         Flash::success('Booking deleted successfully.');
 
         return redirect(route('bookings.index'));
+    }
+    public function AJAXinfo(Request $request){
+//       $booking = Booking::find((int)$request->trip_route_id);
+       $seats = available::find((int)$request->trip_route_id);
+
+       $TotalSeats = '<h4 class="text-primary text-center">Click on Seat to select / deselect</h4><div class="row" style="padding-right: 15px;">';
+       $busySeats = explode(',', $seats->busy);
+
+       for ($i = 0; $i < $seats->seats; $i ++){
+           $busy = false;
+           for ($j = 0; $j < count($busySeats); $j ++){
+                if($i+1 == $busySeats[$j]) {
+                    $TotalSeats .= '<div class="col-xs-2"><div class=\'seat ladies\' data-item=""><div class="seat-body">' . ($i+1) . '<span class="seat-handle-left"></span><span class="seat-handle-right"></span><span class="seat-bottom"></span></div></div></div>';
+                   $busy = true;
+                }
+           }
+           if(!$busy){
+               $TotalSeats .= '<div class="col-xs-2"><div class="seat occupied ChooseSeat" data-item=""><div class="seat-body">'. ($i+1) .'<span class="seat-handle-left"></span> <span class="seat-handle-right"></span><span class="seat-bottom"></span></div></div></div>';
+           }
+       }
+
+        $data['seats'] =  $TotalSeats;
+        $data['pickup'] =  '<option selected value="'. $request->from .'">'. $request->from .'</option>';
+        $data['drop'] =  '<option selected value="'. $request->to .'">'. $request->to .'</option>';
+        $data['trip_id_no'] = $request->fleet_registration_id;
+        $data['trip_route_id'] = $request->fleet_registration_id;
+        $data['fleet_registration_id'] = $request->fleet_registration_id;
+        $data['fleet_type_id'] = $request->fleet_registration_id;
+        $data['booking_date'] = $request->booking_date;
+
+      return json_encode($data);
+    }
+    public function AJAXBoockingInfo(Request $request){
+        $rout = Routes::find((int)$request->trip_route_id);
+
+        $data['price'] =  $rout->fare;
+        $data['total'] = 0;
+        $data['status'] = true;
+
+        return json_encode($data);
+    }
+
+    public function registBooking(Request $request){
+        $user = Auth::user();
+
+        $price = Routes::find($request->trip_route_id)->first(['fare']);
+        $seats = array_filter(explode(',',$request->seat_number));
+
+        $avaibles = available::where('route_id',$request->trip_route_id)->first();
+        $avaibles->busy = rtrim(implode(',',array_unique(array_merge($seats,explode(',', $avaibles->busy)), SORT_REGULAR)),',');
+        $avaibles->save();
+
+        $booking = new Booking();
+        $booking->user_id = $user->id;
+        $booking->route_ids = $request->trip_route_id;
+        $booking->route_name = $price->name;
+        $booking->seats = rtrim($request->seat_number,',');
+        $booking->fare = $price->fare * count($seats);
+        $booking->created_at = date("Y-m-d H:i:s");
+        $booking->updated_at = date("Y-m-d H:i:s");
+        $booking->save();
+
+        return redirect(route('bookings.user.dashboard'));
+    }
+
+    public function userBookings(){
+        $cities = json_encode(Cities::all(['id','name']));
+
+        $bookings = Booking::where('user_id',Auth::user()->id)->orderBy('created_at','desc')->get();
+
+        return view('users.dashboard',compact('cities','bookings'));
     }
 }

@@ -47,3 +47,7 @@
     <a href="{!! route('ratings.index') !!}"><i class="fa fa-edit"></i><span>Ratings</span></a>
 </li>
 
+<li class="{{ Request::is('availables*') ? 'active' : '' }}">
+    <a href="{!! route('availables.index') !!}"><i class="fa fa-edit"></i><span>Availables</span></a>
+</li>
+

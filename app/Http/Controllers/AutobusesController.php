@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateAutobusesRequest;
 use App\Http\Requests\UpdateAutobusesRequest;
+use App\Models\Autobuses;
 use App\Repositories\AutobusesRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -36,6 +37,14 @@ class AutobusesController extends AppBaseController
             ->with('autobuses', $autobuses);
     }
 
+
+    public function status($id){
+        $autobus = Autobuses::findOrFail((int) $id);
+        $autobus->status = !$autobus->status;
+        $autobus->save();
+        return redirect()->back();
+
+    }
     /**
      * Show the form for creating a new Autobuses.
      *
