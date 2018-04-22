@@ -33,6 +33,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UsersController');
 Route::get('u/profile', 'UsersController@profile')->name('users.profile');
 Route::get('u/dashboard','BookingController@userBookings')->name('bookings.user.dashboard');
+Route::post('users/update/image', 'UsersController@updateImg')->name('user.image');
+Route::post('users/update{id}', 'UsersController@update')->name('users.update');
+
 
 Route::resource('autobuses', 'AutobusesController');
 Route::get('autobuses/{autobuse}/status','AutobusesController@status')->name('autobuses.status');

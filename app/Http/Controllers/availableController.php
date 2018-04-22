@@ -19,6 +19,7 @@ class availableController extends AppBaseController
     public function __construct(availableRepository $availableRepo)
     {
         $this->availableRepository = $availableRepo;
+        $this->middleware('auth:admin');
     }
 
     /**

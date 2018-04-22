@@ -25,6 +25,7 @@ class RoutesController extends AppBaseController
     public function __construct(RoutesRepository $routesRepo)
     {
         $this->routesRepository = $routesRepo;
+        $this->middleware('auth:admin')->except('search');
     }
 
     /**

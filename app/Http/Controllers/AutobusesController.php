@@ -20,6 +20,7 @@ class AutobusesController extends AppBaseController
     public function __construct(AutobusesRepository $autobusesRepo)
     {
         $this->autobusesRepository = $autobusesRepo;
+        $this->middleware('auth:admin');
     }
 
     /**

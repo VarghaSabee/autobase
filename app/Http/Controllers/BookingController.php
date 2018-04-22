@@ -24,6 +24,8 @@ class BookingController extends AppBaseController
     public function __construct(BookingRepository $bookingRepo)
     {
         $this->bookingRepository = $bookingRepo;
+        $this->middleware('auth')->except('AJAXBoockingInfo','AJAXinfo','index','show','destroy');
+        $this->middleware('auth:admin')->except('userBookings','registBooking','AJAXBoockingInfo','AJAXinfo','destroy');
     }
 
     /**
@@ -144,22 +146,25 @@ class BookingController extends AppBaseController
     public function destroy($id)
     {
         $booking = $this->bookingRepository->findWithoutFail($id);
+        $available = available::where('route_id',$booking->route_ids)->first();
 
         if (empty($booking)) {
             Flash::error('Booking not found');
 
             return redirect(route('bookings.index'));
         }
-
+        $busy = array_diff( explode(',',$available->busy),explode(',',$booking->seats) );
+        $available->busy = implode(',',$busy);
+        $available->save();
         $this->bookingRepository->delete($id);
 
         Flash::success('Booking deleted successfully.');
 
-        return redirect(route('bookings.index'));
+        return redirect()->back();
     }
     public function AJAXinfo(Request $request){
 //       $booking = Booking::find((int)$request->trip_route_id);
-       $seats = available::find((int)$request->trip_route_id);
+       $seats = available::where('route_id',(int)$request->trip_route_id)->first();
 
        $TotalSeats = '<h4 class="text-primary text-center">Click on Seat to select / deselect</h4><div class="row" style="padding-right: 15px;">';
        $busySeats = explode(',', $seats->busy);
@@ -189,7 +194,7 @@ class BookingController extends AppBaseController
       return json_encode($data);
     }
     public function AJAXBoockingInfo(Request $request){
-        $rout = Routes::find((int)$request->trip_route_id);
+        $rout = Routes::where('id',(int)$request->trip_route_id)->first();
 
         $data['price'] =  $rout->fare;
         $data['total'] = 0;
@@ -201,7 +206,7 @@ class BookingController extends AppBaseController
     public function registBooking(Request $request){
         $user = Auth::user();
 
-        $price = Routes::find($request->trip_route_id)->first(['fare']);
+        $price = Routes::where('id',$request->trip_route_id)->first(['fare','name']);
         $seats = array_filter(explode(',',$request->seat_number));
 
         $avaibles = available::where('route_id',$request->trip_route_id)->first();

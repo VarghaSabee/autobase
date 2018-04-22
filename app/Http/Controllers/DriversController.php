@@ -20,6 +20,7 @@ class DriversController extends AppBaseController
     public function __construct(DriversRepository $driversRepo)
     {
         $this->driversRepository = $driversRepo;
+        $this->middleware('auth:admin');
     }
 
     /**

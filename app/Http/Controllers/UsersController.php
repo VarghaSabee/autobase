@@ -8,6 +8,7 @@ use App\Repositories\UsersRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Models\Cities;
@@ -20,6 +21,8 @@ class UsersController extends AppBaseController
     public function __construct(UsersRepository $usersRepo)
     {
         $this->usersRepository = $usersRepo;
+        $this->middleware('auth')->except('index','show','destroy');
+        $this->middleware('auth:admin')->except('update','destroy','edit','updateImg','profile');
     }
 
     /**
@@ -115,19 +118,30 @@ class UsersController extends AppBaseController
      */
     public function update($id, UpdateUsersRequest $request)
     {
-        $users = $this->usersRepository->findWithoutFail($id);
+        $user = Auth::user();
 
-        if (empty($users)) {
-            Flash::error('Users not found');
-
-            return redirect(route('users.index'));
+        if(isset($request->newpassword) && !$request->newpassword == '') {
+            if (Hash::check($request->password, $user->password)) {
+                if ($request->newpassword == $request->newpasswordconf) {
+                    $user->telephone = $request->telephone;
+                    $user->name = $request->name;
+                    $user->image = $request->image;
+                    $user->password = Hash::make($request->newpassword);
+                    $user->save();
+                } else {
+                    return redirect(route('users.edit',['id',$user->id]))->with('status', 'Паролі не збігаються!');
+                }
+            } else {
+                return redirect(route('users.edit',['id',$user->id]))->with('status', 'Невірний пароль!');
+            }
         }
+        $user->telephone = $request->telephone;
+        $user->name = $request->name;
+        $user->image = $request->image;
+        $user->save();
 
-        $users = $this->usersRepository->update($request->all(), $id);
-
-        Flash::success('Users updated successfully.');
-
-        return redirect(route('users.index'));
+        Flash::success('Users data updated successfully.');
+        return redirect(route('users.profile'));
     }
 
     /**
@@ -158,4 +172,32 @@ class UsersController extends AppBaseController
 
         return view('users.profile',compact('cities'));
     }
+
+
+    public function updateImg(Request $req){
+        try{
+            $location = public_path() . '/images/user/' . Auth::user()->id . '/';
+
+            if (!file_exists($location)) {
+                mkdir($location, 0777, true);
+            }
+
+            $files = glob($location . '*');
+            foreach($files as $file){
+                if(is_file($file))
+                    unlink($file);
+            }
+            $name = time() . '.png';
+            $req->image->move($location, $name);
+
+            $img = '' . Auth::user()->id . '/' . $name;
+
+            $user = Auth::user();
+            $user->image = $img;
+            $user->save();
+            return $img;
+        }catch (Exception $e){
+            return $e;
+        }
+}
 }

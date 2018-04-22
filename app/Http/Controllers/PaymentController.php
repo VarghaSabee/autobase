@@ -10,7 +10,10 @@ use Flash;
 
 class PaymentController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /*
    * Process payment using credit card
    */
@@ -145,7 +148,8 @@ class PaymentController extends Controller
     */
     public function paywithPaypal($id)
     {
-        $booking = Booking::find((int) $id)->first();
+        $id = (int) $id;
+        $booking = Booking::where('id',$id)->first();
         Session::put('paymantID', $id);
         // ### Payer
         // A resource representing a Payer that funds a payment
@@ -156,7 +160,7 @@ class PaymentController extends Controller
 
         $item1 = Paypalpayment::item();
         $item1->setName('Route ' . $booking->route_name)
-            ->setDescription('Ticket route ' . $booking->route_name)
+            ->setDescription('Ticket route ' . $booking->route_name . '. For seats '. $booking->seats)
             ->setCurrency('USD')
             ->setQuantity(1)
             ->setTax(0)
@@ -220,7 +224,7 @@ class PaymentController extends Controller
 
         return redirect($payment->getApprovalLink());
        // return response()->json([$payment->toArray(), 'approval_url' => $payment->getApprovalLink()], 200);
-        //return dd($booking);
+       // return dd($booking);
 
     }
 

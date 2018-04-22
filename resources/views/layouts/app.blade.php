@@ -172,7 +172,7 @@
     </div>
 </div>
 <a name="customer_service"></a>
-<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/datepicker.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/datepicker.en.js') }}" type="text/javascript"></script>

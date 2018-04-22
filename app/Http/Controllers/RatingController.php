@@ -20,6 +20,9 @@ class RatingController extends AppBaseController
     public function __construct(RatingRepository $ratingRepo)
     {
         $this->ratingRepository = $ratingRepo;
+        $this->middleware('auth');
+        $this->middleware('auth:admin')->except('store');
+
     }
 
     /**

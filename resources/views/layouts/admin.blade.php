@@ -60,7 +60,7 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg"
+                            <img src="{{ asset('images/favicon.jpg') }}"
                                  class="user-image" alt="User Image"/>
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">{{Auth::guard('admin')->user()->name}}</span>
@@ -91,7 +91,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="http://infyom.com/images/logo/blue_logo_150x150.jpg" class="img-circle"
+                    <img style="min-width: 50px; min-height: 50px;max-width: 50px; max-height: 50px;" src="{{ asset('images/favicon.jpg') }}" class="img-circle"
                          alt="User Image"/>
                 </div>
                 <div class="pull-left info">
@@ -188,8 +188,6 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{ route('bookings.index') }}"><i class="fa fa-circle-o"></i> Бронювання</a></li>
-                        <li><a href="{{ route('bookings.create') }}"><i class="fa fa-circle-o"></i> Додати</a></li>
-
                     </ul>
                 </li>
                 <li class="treeview">

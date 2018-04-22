@@ -20,6 +20,7 @@ class AdminsController extends AppBaseController
     public function __construct(AdminsRepository $adminsRepo)
     {
         $this->adminsRepository = $adminsRepo;
+        $this->middleware('auth:admin');
     }
 
     /**
