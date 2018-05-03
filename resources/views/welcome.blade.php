@@ -45,8 +45,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="col-sm-8">
                     <div class="header-title-inner">
                         <h2>On the placess you'll go</h2>
